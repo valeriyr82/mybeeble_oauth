@@ -1,0 +1,23 @@
+body {
+  padding: 0 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+pre {
+    border: 1px dotted #FE7A15;
+    background-color: #ffffcc;
+    padding: 20px;
+}
+
+h1 small {
+    font-size: 0.7em;
+    font-style: italic;
+    color: blue;
+}
+h1 small:before{
+    content: " - "
+}

@@ -145,7 +145,6 @@ module.exports = function(dbPool) {
                 if(err) return callback(err);
                 connection.query('SELECT id FROM user WHERE username = ? AND password = MD5(?)',
                     [username, password], function(err, result){
-                        console.log(err, result);
                         if(err) {
                             callback(err, false);
                         } else {

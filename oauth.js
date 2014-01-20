@@ -21,7 +21,7 @@ var dbPool = mysql.createPool(config.db);
 
 var app = express();
 
-app.set('port', config.port || 3000);
+app.set('port', config.port || 8000);
 
 app.configure(function() {
     var oauth = oauthserver({

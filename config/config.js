@@ -8,6 +8,13 @@ module.exports = {
         user_status : ["new", "active", "admin"]
     },
     db : {
+        host         : 'localhost',
+        user         : 'root',
+        password     : 'root',
+        database     : 'mybeebledb',
+        wait_timeout : 1000
+    },
+    db1 : {
         host         : '192.168.0.199',
         user         : 'mybeeble',
         password     : 'password',
@@ -20,7 +27,7 @@ module.exports = {
         avatar: '/mnt/mybeeble/avatar/',
         post_img: '/mnt/mybeeble/posts/'
     },
-    port : 3000,
+    port : 8000,
     curlPath: {
         zipInRadius : "http://zipcodedistanceapi.redline13.com/rest/cdVnHmC9UXF5ltFIm4Cff7aDO4Fn6Mzi0uGHRiQLgwRB0xkmBWBQ4LuSQ9gXVQfW/radius.json/71959/50/km"
     }

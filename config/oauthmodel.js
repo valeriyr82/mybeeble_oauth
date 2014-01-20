@@ -19,7 +19,6 @@ module.exports = function(dbPool) {
     return {
         getAccessToken : function (bearerToken, callback) {
             dbPool.getConnection(function(err, connection){
-                console.log('---getAccessToken');
                 if(err) return callback(err);
                 connection.query('SELECT access_token, client_id, expires, user_id FROM oauth_access_tokens ' +
                     'WHERE access_token = ?', [bearerToken], function(err, result){
@@ -45,7 +44,6 @@ module.exports = function(dbPool) {
         },
         getClient : function (clientId, clientSecret, callback) {
             dbPool.getConnection(function(err, connection){
-                console.log('---getClient');
                 if(err) return callback(err);
                 connection.query('SELECT client_id, client_secret, redirect_uri FROM oauth_clients WHERE ' +
                     'client_id = ? AND client_secret = ?', [clientId, clientSecret], function(err, result){
@@ -69,7 +67,6 @@ module.exports = function(dbPool) {
         },
         getRefreshToken : function (bearerToken, callback) {
             dbPool.getConnection(function(err, connection){
-                console.log('---getRefreshToken');
                 if(err) return callback(err);
                 connection.query('SELECT refresh_token, client_id, expires, user_id FROM oauth_refresh_tokens ' +
                     'WHERE refresh_token = ?', [bearerToken], function(err, result){
@@ -94,7 +91,6 @@ module.exports = function(dbPool) {
 // This will very much depend on your setup, I wouldn't advise doing anything exactly like this but
 // it gives an example of how to use the method to resrict certain grant types
         grantTypeAllowed : function (clientId, grantType, callback) {
-            console.log('---grantTypeAllowed');
             callback(false, true);
             /*
             if (grantType === 'password') {
@@ -104,7 +100,6 @@ module.exports = function(dbPool) {
         },
 
         saveAccessToken : function (accessToken, clientId, userId, expires, callback) {
-            console.log('---saveAccessToken');
             dbPool.getConnection(function(err, connection){
                 if(err) return callback(err);
                 connection.query('INSERT INTO oauth_access_tokens(access_token, client_id, user_id, expires) ' +
@@ -124,7 +119,6 @@ module.exports = function(dbPool) {
         },
 
         saveRefreshToken : function (refreshToken, clientId, userId, expires, callback) {
-            console.log('---saveRefreshToken');
             dbPool.getConnection(function(err, connection){
                 if(err) return callback(err);
                 connection.query('INSERT INTO oauth_refresh_tokens(refresh_token, client_id, user_id, expires) ' +
@@ -147,7 +141,6 @@ module.exports = function(dbPool) {
          * Required to support password grant type
          */
         getUser : function (username, password, callback) {
-            console.log('---getUser');
             dbPool.getConnection(function(err, connection){
                 if(err) return callback(err);
                 connection.query('SELECT id FROM user WHERE username = ? AND password = MD5(?)',

@@ -16,7 +16,7 @@ var auth = require('./config/middlewares/authorization');
 var oauthserver = require('node-oauth2-server');
 
 //Bootstrap db connection
-var dbPool = mysql.createPool(config.db);
+var dbPool = mysql.createPool(config.db1);
 
 
 var app = express();
